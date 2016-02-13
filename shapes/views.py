@@ -747,7 +747,7 @@ def get_liders(request):
             
 
             de = {"user":user, "score":score, "ranking":ranking}
-            print de
+            #print de
             jd["leaders"].append(de)
             
 
