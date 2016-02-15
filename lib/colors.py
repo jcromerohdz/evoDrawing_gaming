@@ -18,7 +18,7 @@ from user_activity import Activity_stream
 
 def fuzzy_fitness(fitness):
 
-    r = redis
+    r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
     rate_by_fuzzy=[]
     fuzzy=[] 
@@ -32,23 +32,31 @@ def fuzzy_fitness(fitness):
         if u != "DefaultContext":
             usr, usr_date = u.split(":")
             
+            #exp = int(r.get(usr))
             exp = int(activity.experience(usr))
             print ":P:P:P:P:P:P:P:P:"
             print exp
             rate = int(fitness[u])
-            print str(rate) +" , " + str(exp)
+            n = Person()
+            participation = n.get_participation(usr)
+            participation = participation[0][0]
+            ranking=get_level(participation)
+            print str(rate) +" , " + str(exp) +" , " + str(ranking)
             
-        #print fisuser(rate,exp)
-            rate_by_fuzzy.append(rate * fisuser(rate,exp))
-            fuzzy.append(fisuser(rate,exp))
+            print "PPPPPPPFUZZYPPPPP"
+            print ranking
+            print fisuser(rate, exp, ranking)
+            rate_by_fuzzy.append(rate * fisuser(rate, exp, ranking))
+            fuzzy.append(fisuser(rate,exp,ranking))
 
     
-    #print rate_by_fuzzy
-    #print sum(rate_by_fuzzy)
-    #print fuzzy
-    #print sum(fuzzy)        
-    fuzzy_ponderation = sum(rate_by_fuzzy)/sum(fuzzy)
-    return fuzzy_ponderation
+    print rate_by_fuzzy
+    print sum(rate_by_fuzzy)
+    print fuzzy
+    print sum(fuzzy)        
+    fuzzy_ponderation = sum(rate_by_fuzzy)/sum(fuzzy) 
+    print fuzzy_ponderation 
+    return fuzzy_ponderation  
 
 
 def current_fitness(fitness):
@@ -61,13 +69,9 @@ def few_views(pop, views=2, count=2):
 
 def calc_fitness(pop):
     for ind in pop["sample"]:
-        print "::::: Fitness Calculation ::::"
         if ind['views'] > 0:
             #ind['currentFitness'] = ( int(current_fitness(ind['fitness'])) + 1 ) / (float(ind['views']) + 1)
-            ind['currentFitness'] = fuzzy_fitness(ind['fitness'])
-            print "::::: New fuzzy ponderation Fitness ::::"
-            print ind['currentFitness']     
-
+            ind['currentFitness'] = fuzzy_fitness(ind['fitness'])           
         else:
             ind['currentFitness'] = None
     return pop

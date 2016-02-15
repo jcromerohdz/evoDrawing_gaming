@@ -3,23 +3,21 @@ __author__ = 'chris'
 import time, datetime
 from py2neo import rel, node, neo4j, cypher
 from py2neo import packages
+import os
 
 
 #import redis
 # conectarse a graphene service
-import os
 
-URL = os.environ['GRAPHENEDB_URL']
-
-
-#local  ne4j
 from py2neo.packages.urimagic import URI
-GRAPHENEDB_URL = URL
+GRAPHENEDB_URL = os.environ['GRAPHENEDB_URL']
 graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
 service_root = neo4j.ServiceRoot(URI(graphenedb_url).resolve("/"))
 graph_db=service_root.graph_db
 
-graph_db = neo4j.GraphDatabaseService()
+
+#local  ne4j
+#graph_db = neo4j.GraphDatabaseService()
 
 
 
