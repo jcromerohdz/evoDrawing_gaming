@@ -66,10 +66,10 @@
         <div class="col-md-4">
         <button class="btn btn-success" id="get_more" > Get More</button>
           
-            {% if user.is_authenticated %}
-                <h2>{{ user.first_name }}</h2>
+           <!--  {% if user.is_authenticated %}
+                <h2>{{ user.first_name }}</h2> -->
                 <!-- <p> <a href="/logout">Log out</a> </p> -->
-                <input id="username" type="hidden" value="{{user.username}}"/>
+                <!-- <input id="username" type="hidden" value="{{user.username}}"/>
                 <p>Please rate each drawing on the canvas, but wait until the drawing animation is complete. After each rating you will get another drawing. Collect your favorites!..</p>
             {% else %}
                 <h2>Help us!</h2>
@@ -77,7 +77,7 @@
                
                 <input id="username" type="hidden" value="anonymous"/>
             {% endif %}
-            <hr/>
+            <hr/> -->
 
           
 
@@ -112,9 +112,10 @@
           </div>  -->
           <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Click on avatar friends to see their drawings!</h3>
+                  <h3 class="panel-title">Friends</h3>
                 </div>
           <div class="panel-body">
+          Click on avatar friends to see their drawings!
                 {% if user.is_authenticated %}
                       
                     {% for f in friends  %}
@@ -136,9 +137,10 @@
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Below you can create collections of drawings</h3>
+              <h3 class="panel-title">Collections</h3>
             </div>
             <div class="panel-body">
+            Below you can create collections of drawings
                 {% if user.is_authenticated %}
                 <ol id="selectable" class="glyphicons">
 
@@ -151,6 +153,19 @@
                 {% endif %}
 
             </div>
+            </div>
+
+            <div>
+            <h2>About this</h2>
+              <p align="justify">
+              This is an experiment on <a href="https://en.wikipedia.org/wiki/Interactive_evolutionary_computation" target="_blank">interactive evolutionary computation</a> where you're contributing by rating a population of drawings.
+              </p>
+              <p align="justify">Each drawing is presented to many users and depending on their collective taste drawings are selected for reproduction or not. If a drawing is selected their DNA is passed to the next generation just like in natural selection. This technique will produce  new drawings that share the DNA of two parents selected by you.
+              </p>
+              <p align="justify">
+                You can store drawings you like in one of your collections and share them with your friends. You can follow the history of any drawing. If you rate many drawings you will begin to see more drawings with the features you like.
+              </p>
+
             </div>
 
 
@@ -222,14 +237,33 @@
             </div>
             </div>
 
-            
-
-                
-            
-
+          
         </div>
 
 
+        <div class="col-md-4">
+
+          {% if user.is_authenticated %}
+              <!-- <h2>{{ user.first_name }}</h2> -->
+              <!-- <p> <a href="/logout">Log out</a> </p> -->
+              <input id="username" type="hidden" value="{{user.username}}"/>
+              <ul>
+                <li>Please rate each drawing on the canvas, </li>
+               <li> but wait until the drawing animation is complete.</li> 
+                <li>After each rating you will get another drawing.</li> 
+               <li>Collect your favorites!</li> 
+
+               </ul>
+          {% else %}
+              <!-- <h2>Help us!</h2>
+              <p>Please to participate <a href="facebook/get_login">log in </a> with your facebook account.</p>
+              -->
+              <input id="username" type="hidden" value="anonymous"/>
+          {% endif %}
+          <hr/>
+          
+
+        </div>
 
 
 
