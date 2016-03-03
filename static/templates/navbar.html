@@ -54,20 +54,20 @@
                   </ul>
                 </li> -->
 
-                <li class="dropdown">
+                <!-- <li class="dropdown"> -->
                   {% if user.is_authenticated %}
 
-                    <a href="/logout">Log out</a>
+                    <li><a href="/logout">Log out</a></li>
                    {% else %} 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Log In<span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
+                  <!-- <ul class="dropdown-menu" role="menu"> -->
                     <li><a href="facebook/get_login" class="btn btn-block btn-default">Facebook</a></li>
                     
                     
                     
-                  </ul>
+                  <!-- </ul> -->
                   {% endif %}
-                </li>
+                <!-- </li> -->
               </ul>
         </div><!--/.navbar-collapse -->
       </div>
