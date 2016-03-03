@@ -108,7 +108,7 @@ class Person(object):
         
         try:
             #"Participaciones"
-            query = "MATCH n-[r]-() where n.element_type='person' return n.name as user, count(r) as score order by count(r) DESC"
+            query = "MATCH n-[r]-() where n.element_type='person' return n.name as user, count(r) as score order by count(r) DESC LIMIT 10"
             print query
             result, metadata = cypher.execute(graph_db, query)
             r = result
