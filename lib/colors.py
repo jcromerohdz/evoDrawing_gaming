@@ -13,7 +13,7 @@ from store import redis
 from userFitnessFuzzyRules import fisuser
 from user_activity import Activity_stream
 
-#r = redis
+#r = redis ddddd
 
 
 def fuzzy_fitness(fitness):
