@@ -305,7 +305,7 @@ def home(request):
 
         if friends:
         # Mejor con FQL
-        print "FRIENDS"
+            print "FRIENDS"
             app_friends = [f for f in friends['data'] if f.has_key('installed')]
 
             if app_friends:
