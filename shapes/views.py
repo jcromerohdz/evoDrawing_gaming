@@ -50,7 +50,7 @@ from lib.usr_last_date import usr_last_date
 
 # 	return render(request, "test.html", {"mensaje":m})
 
-EVOLUTION_INTERVAL = 2
+EVOLUTION_INTERVAL = 8
 REINSERT_THRESHOLD = 20
 popName = 'pop'
 
