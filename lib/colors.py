@@ -18,7 +18,7 @@ from user_activity import Activity_stream
 
 def fuzzy_fitness(fitness):
 
-    r = redis.StrictRedis(host='localhost', port=6379, db=0)
+    r = redis
 
     rate_by_fuzzy=[]
     fuzzy=[] 
