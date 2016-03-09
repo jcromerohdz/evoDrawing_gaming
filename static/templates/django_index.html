@@ -209,19 +209,19 @@
 
 
 
-        <div class='row'>
+ <!--        <div class='row'>
           <div class='col-md-6'>
 
             <div class="thumbnail">
 
-
+ -->
             <!-- <canvas id="slot0" data-processing-sources="https://s3.amazonaws.com/evospace/prototype/figs.pde"></canvas> -->
-            
+<!--             
             <canvas id="slot0" data-processing-sources="static/static/js/figs.pde"></canvas>
             <div class="cover boxcaption">
-            <a class="paint_name">                </a>
+            <a class="paint_name"> -->                </a>
             <!-- <a class="fitness" > </a> -->
-            {% if user.is_authenticated %}
+ <!--            {% if user.is_authenticated %}
                 <div id='loading'>
                 <img src="http://castelmaison.com/media/wysiwyg/loader01.gif"  height="40" width="40">
 
@@ -238,28 +238,30 @@
             </div>
 
           
-        </div>
+        </div> -->
 
 
         <div class="col-md-4">
 
-          {% if user.is_authenticated %}
+          <!-- {% if user.is_authenticated %} -->
               <!-- <h2>{{ user.first_name }}</h2> -->
               <!-- <p> <a href="/logout">Log out</a> </p> -->
               <input id="username" type="hidden" value="{{user.username}}"/>
-              <ul>
+
+              <h3>><p>We appreciate your participation in this experiment thank you very much everyone.</p></h3>
+              <!-- <ul>
                 <li>Please rate each drawing on the canvas, </li>
                <li> but wait until the drawing animation is complete.</li> 
                 <li>After each rating you will get another drawing.</li> 
-               <li>Collect your favorites!</li> 
+               <li>Collect your favorites!</li>  -->
 
-               </ul>
-          {% else %}
+          <!--      </ul>
+          {% else %} -->
               <!-- <h2>Help us!</h2>
               <p>Please to participate <a href="facebook/get_login">log in </a> with your facebook account.</p>
               -->
               <input id="username" type="hidden" value="anonymous"/>
-          {% endif %}
+          <!-- {% endif %} -->
           <hr/>
           
 
