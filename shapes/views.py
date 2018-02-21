@@ -184,7 +184,7 @@ def evospace(request):
     else:
         return HttpResponse("ajax & post please", mimetype='text')
 
-#@ensure_csrf_cookie            
+#@ensure_csrf_cookie
 def home(request):
     #print request
     if request.user.is_authenticated():
@@ -192,12 +192,12 @@ def home(request):
         print request.user.username
         face = FacebookSession.objects.get(uid=request.user.username)
         friends = None
-        
+
         friends = face.query("me", connection_type="friends", fields='name,installed')
-       
+
         #print friends
-       
-        
+
+
         #print "Amigos"
         #print friends
 
@@ -298,7 +298,7 @@ def home(request):
                     relation.likes(nodo1,nodo2)
 
                     print "You like internet"
-                    
+
             #internet = request.POST["internet"]
             #elementary = request.POST["elementary"]
             #phd = request.POST['PhD']
@@ -382,6 +382,8 @@ def facebook_login(request):
     response = urllib.urlopen("https://graph.facebook.com/oauth/access_token?" + urllib.urlencode(args))
     response = urlparse.parse_qs(response.read())
     access_token = response["access_token"][-1]
+    print "#########TOKEN##########"
+    print access_token
     profile = json.load(urllib.urlopen(
         "https://graph.facebook.com/me?" +
         urllib.urlencode(dict(access_token=access_token))))
@@ -393,7 +395,7 @@ def facebook_login(request):
     facebook_session.expires = expires
     facebook_session.save()
     user = authenticate(token=access_token)
-    
+
     if user:
         #print user
         u = str(user)
@@ -403,9 +405,9 @@ def facebook_login(request):
         r.set("time_login:"+u, login_time)
 
         if user.is_active:
-            
+
             login(request, user)
-            
+
             return HttpResponseRedirect('/')
         else:
             error = 'AUTH_DISABLED'
@@ -429,7 +431,7 @@ def logout_view(request):
     #print logout_time
     logout(request)
     # logout time
-   
+
 
     return HttpResponseRedirect('/')
 
@@ -711,21 +713,21 @@ def get_user_level(request, username):
             ranking=get_level(score)
             print score
             print ranking
-        
+
 
             jd = {"user_level": {"score":score, "level":ranking}}
 
 
             j = json.dumps(jd)
 
-        
-        
+
+
     return HttpResponse(j, content_type='application/json')
 
 
 def get_liders(request):
     #print "T_T"
-    
+
     jd = {"leaders":[]}
     p = Person()
 
@@ -733,11 +735,11 @@ def get_liders(request):
     lider_board = p.get_lider_board()
     #ldier_board = score[0][0]
 
-   
+
     if lider_board:
         #   c = 0
         for lider in lider_board:
-            
+
             # if c < len(lider_board):
             #     c = c + 1
             #     print c
@@ -745,29 +747,23 @@ def get_liders(request):
             user = lider[0]
             score = lider[1]
             ranking=get_level(score)
-            
+
 
             de = {"user":user, "score":score, "ranking":ranking}
             #print de
             jd["leaders"].append(de)
-            
 
-        
-        j = json.dumps(jd) 
+
+
+        j = json.dumps(jd)
         print "101010101001010101010101001"
         print lider_board
         print jd
-        print j   
+        print j
     else:
         print "No leader board"
         m = {"leader_board":"No leader board"}
         j =json.dumps(m)
-        
-        
+
+
     return HttpResponse(j, content_type='application/json')
-
-
-
-
-
-
