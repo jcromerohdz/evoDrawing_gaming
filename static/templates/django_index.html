@@ -29,7 +29,7 @@
 
 <!-- Primary Page Layout
     =========================  ========================= -->
- 
+
 {%block navbar%}
 {%endblock%}
 
@@ -39,17 +39,17 @@
       <!--   <div class="row">
 
         <div class="col-md-4">
-            
+
                 <p><h4>Click on the shapes you like, and give the rate you prefer to get more animations!.</h4> </p>
-            
+
         </div>
-        
+
 
         <div class="col-sm-8">
             <br/>
-            
-            <button class="btn btn-success" id="get_more" > Get More</button> 
-            
+
+            <button class="btn btn-success" id="get_more" > Get More</button>
+
 
 
         </div>
@@ -65,7 +65,7 @@
       <div class="row">
         <div class="col-md-4">
         <button class="btn btn-success" id="get_more" > Get More</button>
-          
+
            <!--  {% if user.is_authenticated %}
                 <h2>{{ user.first_name }}</h2> -->
                 <!-- <p> <a href="/logout">Log out</a> </p> -->
@@ -74,12 +74,12 @@
             {% else %}
                 <h2>Help us!</h2>
                 <p>Please to participate <a href="facebook/get_login">log in </a> with your facebook account.</p>
-               
+
                 <input id="username" type="hidden" value="anonymous"/>
             {% endif %}
             <hr/> -->
 
-          
+
 
 
          <!--    <div class="panel panel-default">
@@ -88,9 +88,9 @@
                 </div>
           <div class="panel-body">
           -->       <!-- {% if user.is_authenticated %} -->
-                      
-                  
-<!-- 
+
+
+<!--
                             <div class='col-sm-2'>
                               <div class="btn-group-vertical " role="group" >
                                     <button class="btn btn-default" id="" data-toggle="modal" data-target="#myModal"> Click to see leader board !!</button>
@@ -101,9 +101,9 @@
                                 <button class="btn btn-default" type="button">
                                       Exp-level <span id ="badge2" class="badge">0</span>
                                 </button>
-                               </div> 
+                               </div>
                             </div>
-                    
+
             {% else %}
 
                 <p><a href="facebook/get_login"> log in </a> to see your participation.</p>
@@ -117,14 +117,14 @@
           <div class="panel-body">
           Click on avatar friends to see their drawings!
                 {% if user.is_authenticated %}
-                      
+
                     {% for f in friends  %}
 
-                            
+
                                 <a href="/get_collection/{{ f.id }}">
                                 <img src="http://graph.facebook.com/{{f.id}}/picture?type=square"
                                  alt="{{ f.name }}" title="{{ f.name }}"/> </a>
-                           
+
                     {% endfor   %}
             {% else %}
 
@@ -132,7 +132,7 @@
             {% endif %}
           </div>
           </div>
-          
+
 
 
           <div class="panel panel-default">
@@ -209,27 +209,27 @@
 
 
 
- <!--        <div class='row'>
+        <div class='row'>
           <div class='col-md-6'>
 
             <div class="thumbnail">
 
- -->
+
             <!-- <canvas id="slot0" data-processing-sources="https://s3.amazonaws.com/evospace/prototype/figs.pde"></canvas> -->
-<!--             
+
             <canvas id="slot0" data-processing-sources="static/static/js/figs.pde"></canvas>
             <div class="cover boxcaption">
-            <a class="paint_name"> -->                </a>
+            <a class="paint_name">                </a>
             <!-- <a class="fitness" > </a> -->
- <!--            {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
                 <div id='loading'>
                 <img src="http://castelmaison.com/media/wysiwyg/loader01.gif"  height="40" width="40">
 
-                
+
 
                 </div>
                 <form id="evaluation">
-                  
+
                   <input id="input-21e" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="xs" data-toggle="tooltip" data-placement="right" title"Evaluate the paiting!">
                 </form>
                 <button class="addto"> Add to collection</button>
@@ -237,33 +237,31 @@
             </div>
             </div>
 
-          
-        </div> -->
+
+        </div>
 
 
         <div class="col-md-4">
 
-          <!-- {% if user.is_authenticated %} -->
+          {% if user.is_authenticated %}
               <!-- <h2>{{ user.first_name }}</h2> -->
               <!-- <p> <a href="/logout">Log out</a> </p> -->
               <input id="username" type="hidden" value="{{user.username}}"/>
-
-              
-              <!-- <ul>
+              <ul>
                 <li>Please rate each drawing on the canvas, </li>
                <li> but wait until the drawing animation is complete.</li> 
-                <li>After each rating you will get another drawing.</li> 
-               <li>Collect your favorites!</li>  -->
+                <li>After each rating you will get another drawing.</li>
+               <li>Collect your favorites!</li>
 
-          <!--      </ul>
-          {% else %} -->
+               </ul>
+          {% else %}
               <!-- <h2>Help us!</h2>
               <p>Please to participate <a href="facebook/get_login">log in </a> with your facebook account.</p>
               -->
               <input id="username" type="hidden" value="anonymous"/>
-          <!-- {% endif %} -->
+          {% endif %}
           <hr/>
-          
+
 
         </div>
 
@@ -271,11 +269,10 @@
 
 
 
-        
- 
+
+
       </br>
            <div class='col-md-6'>
-           <h3><p>We appreciate your participation in this experiment thank you very much everyone!.</p></h3>
             </br></br></br></br></br></br>
             <div><p> Compatible with latest versions of Chrome and FireFox. IExplorer 10+ only.</p></div>
 
@@ -291,7 +288,7 @@
 
 
 
-       
+
 
     </div>
 
@@ -376,7 +373,7 @@
                   </tr> -->
                 </tbody>
         </table>
-        
+
       </div>
 
 
