@@ -384,9 +384,17 @@ def facebook_login(request):
     access_token = response_token["access_token"]
     print "#########TOKEN##########"
     print access_token
-    profile = json.load(urllib.urlopen(
-        "https://graph.facebook.com/me?" +
-        urllib.urlencode(dict(access_token=access_token))))
+    profile = None
+    try:
+        profile = json.load(urllib.urlopen( "https://graph.facebook.com/me?" + urllib.urlencode({'access_token':access_token})))
+        if 'error' in response:
+            error = response['error']
+            raise Exception(error['type'], error['message'])
+    except:
+        return HttpResponseRedirect('/login_error')
+
+
+
     expires = response_token['expires_in']
 
     facebook_session = models.FacebookSession.objects.get_or_create(
