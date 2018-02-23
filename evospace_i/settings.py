@@ -20,6 +20,7 @@ FACEBOOK_APP_SECRET = os.environ['FACEBOOK_APP_SECRET']
 FACEBOOK_REDIRECT_URL = 'https://evodrawings03.herokuapp.com/facebook/login'
 AUTHENTICATION_BACKENDS = (
     'shapes.backends.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # Quick-start development settings - unsuitable for production
