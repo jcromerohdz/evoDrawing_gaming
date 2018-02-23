@@ -380,14 +380,14 @@ def facebook_login(request):
             "code": code}
 
     response = urllib.urlopen("https://graph.facebook.com/oauth/access_token?" + urllib.urlencode(args))
-    response = json.load(response)
-    access_token = response["access_token"]
+    response_token = json.loads(response.read())
+    access_token = response_token["access_token"]
     print "#########TOKEN##########"
     print access_token
     profile = json.load(urllib.urlopen(
         "https://graph.facebook.com/me?" +
         urllib.urlencode(dict(access_token=access_token))))
-    expires = response['expires_in']
+    expires = response_token['expires_in']
 
     facebook_session = models.FacebookSession.objects.get_or_create(
         access_token=access_token)[0]
