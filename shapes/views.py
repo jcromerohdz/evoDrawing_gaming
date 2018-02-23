@@ -380,7 +380,7 @@ def facebook_login(request):
             "code": code}
 
     response = urllib.urlopen("https://graph.facebook.com/oauth/access_token?" + urllib.urlencode(args))
-    response = json.load(response.read())
+    response = json.load(response)
     access_token = response["access_token"]
     print "#########TOKEN##########"
     print access_token
